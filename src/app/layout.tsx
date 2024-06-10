@@ -1,14 +1,58 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
 import "./globals.css";
+// import { cx } from "@/util";
+// import { Inter, Manrope } from "next/font/google";
+import Header from "@/component/Header";
+import Footer from "@/component/Footer";
+import Script from "next/script";
+import siteMetadata from "@/util/SourceMetaData";
 
-const inter = Inter({ subsets: ["latin"] });
+// const inter = Inter({
+//   subsets: ["latin"],
+//   display: "swap",
+//   variable: "--font-in",
+// });
 
-export const metadata: Metadata = {
-  title: "Hien's Digital Shipyard",
-  description: "Hey there, fellow tech enthusiasts! Welcome to my blog where I share my tech journey. Join me as I explore new technologies, tackle coding challenges, and strive to level up as a software engineer every day. From cool tools to handy tips, let's learn and grow together in the wonderful world of technology!"
+// const manrope = Manrope({
+//   subsets: ["latin"],
+//   display: "swap",
+//   variable: "--font-mr",
+// });
+
+export const metadata = {
+  metadataBase: new URL(siteMetadata.siteUrl),
+  title: {
+    template: `%s | ${siteMetadata.title}`,
+    default: siteMetadata.title, // a default is required when creating a template
+  },
+  description: siteMetadata.description,
+  openGraph: {
+    title: siteMetadata.title,
+    description: siteMetadata.description,
+    url: siteMetadata.siteUrl,
+    siteName: siteMetadata.title,
+    images: [siteMetadata.socialBanner],
+    locale: "en_US",
+    type: "website",
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      noimageindex: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: siteMetadata.title,
+    images: [siteMetadata.socialBanner],
+  },
 };
-
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -16,7 +60,25 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      {/* <body
+        className={cx(
+          inter.variable,
+          manrope.variable,
+          "font-mr bg-light dark:bg-dark"
+        )}
+      > */}
+      <body className="font-mr bg-light dark:bg-dark">
+        <Script id="theme-switcher" strategy="beforeInteractive">
+          {`if (localStorage.getItem('theme') === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+    document.documentElement.classList.add('dark')
+  } else {
+    document.documentElement.classList.remove('dark')
+  }`}
+        </Script>
+        <Header />
+        {children}
+        <Footer />
+      </body>
     </html>
   );
 }
