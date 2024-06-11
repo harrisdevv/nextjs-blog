@@ -1,12 +1,11 @@
-import type { Metadata } from "next";
-import "./globals.css";
-import { cx } from "@/util";
-import { Inter, Manrope } from "next/font/google";
-import Header from "@/component/Header";
 import Footer from "@/component/Footer";
-import Script from "next/script";
+import Header from "@/component/Header";
+import { cx } from "@/util";
 import siteMetadata from "@/util/SourceMetaData";
+import { Inter, Manrope } from "next/font/google";
 import Head from "next/head";
+import Script from "next/script";
+import "./globals.css";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -45,7 +44,7 @@ export const metadata = {
   metadataBase: new URL(siteMetadata.siteUrl),
   title: {
     template: `%s | ${siteMetadata.title}`,
-    default: siteMetadata.title, // a default is required when creating a template
+    default: siteMetadata.title, 
   },
   description: siteMetadata.description,
   openGraph: {
