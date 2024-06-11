@@ -21,7 +21,26 @@ const manrope = Manrope({
 
 export const metadata = {
   icons: {
-    icon: "/active-man-thinking-avatar.png",
+    icon: [
+      {
+        rel: "icon",
+        type: "image/png",
+        sizes: "16x16",
+        url: "/favicon/favicon-16.png",
+      },
+      {
+        rel: "icon",
+        type: "image/png",
+        sizes: "32x32",
+        url: "/favicon/favicon-32.png",
+      },
+      {
+        rel: "icon",
+        type: "image/png",
+        sizes: "96x96",
+        url: "/favicon/favicon-96",
+      },
+    ],
   },
   metadataBase: new URL(siteMetadata.siteUrl),
   title: {

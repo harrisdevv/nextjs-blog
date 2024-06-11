@@ -1,14 +1,14 @@
-import { NextPage } from "next";
-import { useRouter } from "next/router";
-import { notFound } from "next/navigation";
-import Image from "next/image";
-import { slug } from "github-slugger";
-import Tag from "@/component/Tag";
 import BlogDetails from "@/component/BlogDetails";
 import RenderMdx from "@/component/RenderMdx";
+import Tag from "@/component/Tag";
 import siteMetadata from "@/util/SourceMetaData";
-// import { allBlogs } from "contentlayer/generated";
-import allBlogs from "@/app/FakeBlogs";
+import { slug } from "github-slugger";
+import { NextPage } from "next";
+import Image from "next/image";
+import { notFound } from "next/navigation";
+import { useRouter } from "next/router";
+// import { blogs } from "contentlayer/generated";
+import blogs from "@/app/FakeBlogs";
 
 interface BlogPageProps {
   params: {
@@ -17,8 +17,9 @@ interface BlogPageProps {
 }
 
 export async function getStaticPaths() {
-  const allBlogs : any[] = []
-  const paths = allBlogs.map((blog) => ({ params: { slug: blog._raw.flattenedPath } }));
+  const paths = blogs.map((blog) => ({
+    params: { slug: blog._raw.flattenedPath },
+  }));
   return {
     paths,
     fallback: false,
@@ -26,8 +27,7 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params }: { params: { slug: string } }) {
-
-  const blog = allBlogs.find((blog) => blog._raw.flattenedPath === params.slug);
+  const blog = blogs.find((blog) => blog._raw.flattenedPath === params.slug);
   if (!blog) {
     return {
       notFound: true,
@@ -79,7 +79,7 @@ export async function getStaticProps({ params }: { params: { slug: string } }) {
 const BlogPage: NextPage<BlogPageProps> = ({ params }) => {
   const router = useRouter();
 
-  const blog = allBlogs.find((blog) => blog._raw.flattenedPath === params.slug);
+  const blog = blogs.find((blog) => blog._raw.flattenedPath === params.slug);
 
   if (!blog) {
     notFound();
@@ -124,9 +124,7 @@ const BlogPage: NextPage<BlogPageProps> = ({ params }) => {
               link={`/categories/${slug(blog.tags[0])}`}
               className="px-6 text-sm py-2"
             />
-            <h1
-              className="inline-block mt-6 font-semibold capitalize text-light text-2xl md:text-3xl lg:text-5xl !leading-normal relative w-5/6"
-            >
+            <h1 className="inline-block mt-6 font-semibold capitalize text-light text-2xl md:text-3xl lg:text-5xl !leading-normal relative w-5/6">
               {blog.title}
             </h1>
           </div>
@@ -155,30 +153,34 @@ const BlogPage: NextPage<BlogPageProps> = ({ params }) => {
                 Table Of Content
               </summary>
               <ul className="mt-4 font-in text-base">
-                {blog.toc.map((heading: { slug: string, level: string, text: string }) => {
-                  return (
-                    <li key={`#${heading.slug}`} className="py-1">
-                      <a
-                        href={`#${heading.slug}`}
-                        data-level={heading.level}
-                        className="data-[level=two]:pl-0  data-[level=two]:pt-2
+                {blog.toc.map(
+                  (heading: { slug: string; level: string; text: string }) => {
+                    return (
+                      <li key={`#${heading.slug}`} className="py-1">
+                        <a
+                          href={`#${heading.slug}`}
+                          data-level={heading.level}
+                          className="data-[level=two]:pl-0  data-[level=two]:pt-2
                                        data-[level=two]:border-t border-solid border-dark/40
                                        data-[level=three]:pl-4
                                        sm:data-[level=three]:pl-6
                                        flex items-center justify-start
                                        "
-                      >
-                        {heading.level === "three" ? (
-                          <span className="flex w-1 h-1 rounded-full bg-dark mr-2">
-                            &nbsp;
-                          </span>
-                        ) : null}
+                        >
+                          {heading.level === "three" ? (
+                            <span className="flex w-1 h-1 rounded-full bg-dark mr-2">
+                              &nbsp;
+                            </span>
+                          ) : null}
 
-                        <span className="hover:underline">{heading.text}</span>
-                      </a>
-                    </li>
-                  );
-                })}
+                          <span className="hover:underline">
+                            {heading.text}
+                          </span>
+                        </a>
+                      </li>
+                    );
+                  }
+                )}
               </ul>
             </details>
           </div>
@@ -187,17 +189,18 @@ const BlogPage: NextPage<BlogPageProps> = ({ params }) => {
       </article>
     </>
   );
-}
+};
 
 export async function generateStaticParams() {
-  let allBlogs : any[] = []
-  return allBlogs.map((blog) => ({ slug: blog._raw.flattenedPath }));
+  return blogs.map((blog) => ({ slug: blog._raw.flattenedPath }));
 }
 
-export async function generateMetadata({ params }: { params: { slug: string } }) {
-
-  let allBlogs : any[] = []
-  const blog = allBlogs.find((blog) => blog._raw.flattenedPath === params.slug);
+export async function generateMetadata({
+  params,
+}: {
+  params: { slug: string };
+}) {
+  const blog = blogs.find((blog) => blog._raw.flattenedPath === params.slug);
   if (!blog) {
     return;
   }
