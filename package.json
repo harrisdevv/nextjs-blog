@@ -9,11 +9,19 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@contentlayer/core": "^0.3.4",
+    "@tailwindcss/forms": "^0.5.7",
+    "@tailwindcss/typography": "^0.5.13",
+    "contentlayer": "^0.3.4",
     "daisyui": "^4.12.2",
     "date-fns": "^3.6.0",
-    "next": "14.2.3",
+    "faker": "^6.6.6",
+    "github-slugger": "^2.0.0",
+    "next": "^14.2.3",
+    "next-contentlayer": "^0.3.4",
     "react": "^18",
     "react-dom": "^18",
+    "react-hook-form": "^7.51.5",
     "styled-components": "^6.1.11"
   },
   "devDependencies": {

@@ -1,6 +1,6 @@
 // please update required information
 const siteMetadata = {
-  title: "Hien's Digital Spaceship",
+  title: "DevDoodles",
   author: "Hien Phan",
   headerTitle: "Next.js Blog",
   description: "A blog created with Next.js & Tailwind.css",
@@ -12,7 +12,7 @@ const siteMetadata = {
   email: "harrisonphan5@gmail.com",
   github: "https://github.com/harrisdevv",
   twitter: "https://x.com/HarrisonPhan9",
-  // linkedin: "https://www.linkedin.com/in/codebucks/",
+  linkedin: "https://www.linkedin.com/in/harrison-phan-b348a4220",
   locale: "en-US",
 };
 

@@ -1,25 +1,28 @@
 import type { Metadata } from "next";
 import "./globals.css";
-// import { cx } from "@/util";
-// import { Inter, Manrope } from "next/font/google";
+import { cx } from "@/util";
+import { Inter, Manrope } from "next/font/google";
 import Header from "@/component/Header";
 import Footer from "@/component/Footer";
 import Script from "next/script";
 import siteMetadata from "@/util/SourceMetaData";
+import Head from "next/head";
 
-// const inter = Inter({
-//   subsets: ["latin"],
-//   display: "swap",
-//   variable: "--font-in",
-// });
-
-// const manrope = Manrope({
-//   subsets: ["latin"],
-//   display: "swap",
-//   variable: "--font-mr",
-// });
+const inter = Inter({
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-in",
+});
+const manrope = Manrope({
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-mr",
+});
 
 export const metadata = {
+  icons: {
+    icon: "/active-man-thinking-avatar.png",
+  },
   metadataBase: new URL(siteMetadata.siteUrl),
   title: {
     template: `%s | ${siteMetadata.title}`,
@@ -35,6 +38,11 @@ export const metadata = {
     locale: "en_US",
     type: "website",
   },
+  twitter: {
+    card: "summary_large_image",
+    title: siteMetadata.title,
+    images: [siteMetadata.socialBanner],
+  },
   robots: {
     index: true,
     follow: true,
@@ -47,11 +55,6 @@ export const metadata = {
       "max-snippet": -1,
     },
   },
-  twitter: {
-    card: "summary_large_image",
-    title: siteMetadata.title,
-    images: [siteMetadata.socialBanner],
-  },
 };
 export default function RootLayout({
   children,
@@ -60,14 +63,16 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      {/* <body
+      <Head>
+        <link rel="shortcut icon" href="/active-man-thinking-avatar.png" />
+      </Head>
+      <body
         className={cx(
           inter.variable,
           manrope.variable,
           "font-mr bg-light dark:bg-dark"
         )}
-      > */}
-      <body className="font-mr bg-light dark:bg-dark">
+      >
         <Script id="theme-switcher" strategy="beforeInteractive">
           {`if (localStorage.getItem('theme') === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
     document.documentElement.classList.add('dark')
