@@ -11,7 +11,7 @@ import {
 import siteMetadata from "@/util/SourceMetaData";
 import { useThemeSwitch } from "./useThemeSwitch";
 import { useState } from "react";
-import { cx } from "@/util";
+import { concateBooleanClass } from "@/util";
 
 const Header = () => {
   const [mode, setMode] = useThemeSwitch();
@@ -83,7 +83,7 @@ const Header = () => {
         </Link>
         <button
           onClick={() => setMode(mode === "light" ? "dark" : "light")}
-          className={cx(
+          className={concateBooleanClass(
             "w-6 h-6 ease ml-2 flex items-center justify-center rounded-full p-1",
             mode === "light" ? "bg-dark text-light" : "bg-light text-dark"
           )}
@@ -101,18 +101,18 @@ const Header = () => {
         className=" w-max py-3 px-8 border border-solid border-dark rounded-full font-medium capitalize  items-center hidden sm:flex
         fixed top-6 right-1/2 translate-x-1/2 bg-light/80 backdrop-blur-sm z-50"
       >
-        <Link href="/" className="mr-2 hover:text-accent">
+        <Link href="/" className="mr-2 transition-all ease hover:text-accent">
           Home
         </Link>
-        <Link href="/about" className="mx-2  hover:text-accent">
+        <Link href="/about" className="mx-2 transition-all ease  hover:text-accent">
           About
         </Link>
-        <Link href="/contact" className="mx-2  hover:text-accent">
+        <Link href="/contact" className="mx-2 transition-all ease  hover:text-accent">
           Contact
         </Link>
         <button
           onClick={() => setMode(mode === "light" ? "dark" : "light")}
-          className={cx(
+          className={concateBooleanClass(
             "w-6 h-6 ease ml-2 flex items-center justify-center rounded-full p-1",
             mode === "light" ? "bg-dark text-light" : "bg-light text-dark"
           )}

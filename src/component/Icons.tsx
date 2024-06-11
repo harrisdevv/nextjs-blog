@@ -1,5 +1,5 @@
 import React, { FC, SVGProps } from "react";
-import { cx } from "@/util";
+import { concateBooleanClass } from "@/util";
 
 export const SunIcon: FC<SVGProps<SVGSVGElement>> = ({ className, ...rest }) => (
   <svg
@@ -8,7 +8,7 @@ export const SunIcon: FC<SVGProps<SVGSVGElement>> = ({ className, ...rest }) => 
     height="24"
     viewBox="0 0 24 24"
     {...rest}
-    className={cx("w-full h-auto", className || "")}
+    className={concateBooleanClass("w-full h-auto", className || "")}
   >
     <rect x="0" y="0" width="24" height="24" fill="rgba(255, 255, 255, 0)" />
     <g
@@ -164,7 +164,7 @@ export const MoonIcon: FC<SVGProps<SVGSVGElement>> = ({ className, ...rest }) =>
     height="24"
     viewBox="0 0 24 24"
     {...rest}
-    className={cx("w-full h-auto", className || "")}
+    className={concateBooleanClass("w-full h-auto", className || "")}
   >
     <g
       fill="none"
@@ -342,7 +342,7 @@ export const LinkedinIcon: FC<SVGProps<SVGSVGElement>> = ({ className, ...rest }
       width={42}
       height={43}
       viewBox="0 0 42 43"
-      className={cx("w-full h-auto", className || "")}
+      className={concateBooleanClass("w-full h-auto", className || "")}
       {...rest}
     >
       <g clipPath="url(#a)">
@@ -371,7 +371,7 @@ export const TwitterIcon : FC<SVGProps<SVGSVGElement>> = ({ className, ...rest }
       width={42}
       height={43}
       viewBox="0 0 42 43"
-      className={cx("w-full h-auto", className || "")}
+      className={concateBooleanClass("w-full h-auto", className || "")}
       {...rest}
     >
       <g clipPath="url(#a)">
@@ -396,7 +396,7 @@ export const GithubIcon : FC<SVGProps<SVGSVGElement>> = ({ className, ...rest })
       width={42}
       height={44}
       viewBox="0 0 42 44"
-      className={cx("w-full h-auto", className || "")}
+      className={concateBooleanClass("w-full h-auto", className || "")}
       {...rest}
     >
       <path
@@ -416,7 +416,7 @@ export const DribbbleIcon : FC<SVGProps<SVGSVGElement>> = ({ className, ...rest 
       width={42}
       height={43}
       viewBox="0 0 42 43"
-      className={cx("w-full h-auto", className || "")}
+      className={concateBooleanClass("w-full h-auto", className || "")}
       {...rest}
     >
       <g clipPath="url(#a)">

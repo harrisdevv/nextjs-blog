@@ -1,6 +1,6 @@
 import Image from "next/image";
 import React from "react";
-// import profileCharacter from "../../../public/character.png";
+import sourceMetadata from "@/util/SourceMetaData";
 
 const AboutSection = () => {
   return (
@@ -10,7 +10,7 @@ const AboutSection = () => {
           src={"/coworking-male-programmer-writing-program-code.gif"}
           width={500}
           height={500}
-          alt="CodeBucks"
+          alt={sourceMetadata.title}
           className="w-4/5  xs:w-3/4 md:w-full h-full object-contain object-center"
           priority
           sizes="(max-width: 768px) 100vw,(max-width: 1180px) 50vw, 50vw"

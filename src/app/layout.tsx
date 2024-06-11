@@ -1,6 +1,6 @@
 import Footer from "@/component/Footer";
 import Header from "@/component/Header";
-import { cx } from "@/util";
+import { concateBooleanClass } from "@/util";
 import siteMetadata from "@/util/SourceMetaData";
 import { Inter, Manrope } from "next/font/google";
 import Head from "next/head";
@@ -85,7 +85,7 @@ export default function RootLayout({
         <link rel="shortcut icon" href="/active-man-thinking-avatar.png" />
       </Head>
       <body
-        className={cx(
+        className={concateBooleanClass(
           inter.variable,
           manrope.variable,
           "font-mr bg-light dark:bg-dark"

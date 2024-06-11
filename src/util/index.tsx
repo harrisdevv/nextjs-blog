@@ -1,6 +1,6 @@
 import { compareDesc, parseISO } from "date-fns";
 
-export const cx = (...classNames: string[]): string => classNames.filter(Boolean).join(" ");
+export const concateBooleanClass = (...classNames: string[]): string => classNames.filter(Boolean).join(" ");
 
 export const sortBlogsByPublishedDate = (blogs: any[]): any[] => {
   return blogs
