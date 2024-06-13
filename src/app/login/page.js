@@ -28,10 +28,10 @@ export default function Login() {
   };
 
   return (
-    <div className="grid grid-cols-1 w-full py-12 px-64 gap-y-8">
-      <h1 class="dark:text-white text-bold text-3xl">Login</h1>
+    <div className="grid grid-cols-1 w-full py-12 px-96 gap-y-8">
+      <h1 class="dark:text-white text-bold text-3xl text-black">Login to your account</h1>
       <form onSubmit={handleSubmit}>
-        <label className="input input-bordered flex items-center gap-2">
+        <label className="bg-white text-black input input-bordered flex items-center gap-2">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 16 16"
@@ -43,13 +43,13 @@ export default function Login() {
           </svg>
           <input
             type="text"
-            className="input grow"
+            className="input grow "
             placeholder="Email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
           />
         </label>
-        <label className="input input-bordered flex items-center gap-2 mt-4">
+        <label className="input bg-white text-black input-bordered flex items-center gap-2 mt-4">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 16 16"

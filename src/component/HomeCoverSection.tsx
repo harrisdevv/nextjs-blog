@@ -18,7 +18,7 @@ const HomeCoverSection = ({ blogs }: { blogs: any[] }) => {
       initial="hidden"
       animate="visible"
       variants={slideInFromLeft}
-      transition={{ duration: 0.5 }} // Adjust the duration as needed
+      transition={{ duration: 1 }} // Adjust the duration as needed
       className="w-full inline-block"
     >
       <div className="w-full inline-block">
@@ -34,7 +34,7 @@ const HomeCoverSection = ({ blogs }: { blogs: any[] }) => {
             blurDataURL={blog.image.blurhashDataUrl}
             alt={blog.title}
             fill
-            className="w-full h-full object-center object-cover rounded-3xl -z-10"
+            className="w-full h-full object-center object-cover rounded-3xl -z-9"
             sizes="100vw"
             priority
           />
