@@ -1,6 +1,7 @@
 "use client";
 import React from "react";
 import { useForm, SubmitHandler } from "react-hook-form";
+import { SubmitButton } from "./SubmitButton";
 
 interface FormData {
   name: string;
@@ -55,11 +56,7 @@ export default function ContactForm() {
         className="w-full outline-none border-0 p-0 mx-0 focus:ring-0  placeholder:text-lg border-b border-gray 
         focus:border-gray bg-transparent"
       />
-      <input
-        type="submit"
-        value="send request"
-        className="mt-8 font-medium inline-block capitalize text-lg sm:text-xl py-2 sm:py-3 px-6 sm:px-8 border-2 border-solid border-dark dark:border-light rounded cursor-pointer dark:hover:bg-accentDark/90 dark:hover:text-black transition-all ease duration-300 dark:hover:text-bold hover:bg-accent hover:text-white"
-      />
+      <SubmitButton label="send request" />
     </form>
   );
 }
