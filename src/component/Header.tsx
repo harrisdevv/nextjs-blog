@@ -16,7 +16,11 @@ import { concateBooleanClass } from "@/util";
 const Header = () => {
   const [mode, setMode] = useThemeSwitch();
   const [click, setClick] = useState(false);
-
+  const scrollToFooter = (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
+    e.preventDefault();
+    document.getElementById('footer')?.scrollIntoView({ behavior: 'smooth' });
+    document.getElementById('email')?.focus();
+  };
   const toggle = () => {
     setClick(!click);
   };
@@ -115,6 +119,9 @@ const Header = () => {
         </Link>
         <Link href="/login" className="mx-2 text-black transition-all ease  hover:text-accent">
           Login
+        </Link>
+        <Link href="#footer" onClick={scrollToFooter} className="mx-2 text-black transition-all ease  hover:text-accent">
+          Newsletter
         </Link>
         <button
           onClick={() => setMode(mode === "light" ? "dark" : "light")}

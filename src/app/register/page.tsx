@@ -27,10 +27,11 @@ export default function Register() {
   };
 
   return (
-    <div className="grid grid-cols-1 w-full py-12 px-96 gap-y-8">
-      <h1 className="dark:text-white text-bold text-3xl">Create new account</h1>
-      <form onSubmit={handleSubmit}>
-        <label className="bg-white text-black input input-bordered flex items-center gap-2">
+  <div className="flex items-center justify-center h-screen max-h-96">
+    <div className="grid grid-cols-1 w-full max-w-lg  gap-y-8">
+      <h1 className="dark:text-white font-bold text-3xl">Create new account</h1>
+      <form onSubmit={handleSubmit} className="w-full">
+        <label className="bg-white text-black input input-bordered flex items-center gap-2 w-full">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 16 16"
@@ -48,7 +49,7 @@ export default function Register() {
             onChange={(e) => setEmail(e.target.value)}
           />
         </label>
-        <label className="bg-white text-black input mt-4 input-bordered flex items-center gap-2">
+        <label className="bg-white text-black input mt-4 input-bordered flex items-center gap-2 w-full">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 16 16"
@@ -65,7 +66,7 @@ export default function Register() {
             onChange={(e) => setName(e.target.value)}
           />
         </label>
-        <label className="bg-white text-black input input-bordered flex items-center gap-2 mt-4">
+        <label className="bg-white text-black input input-bordered flex items-center gap-2 mt-4 w-full">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 16 16"
@@ -90,12 +91,14 @@ export default function Register() {
         <div>
           <Link
             href="/login"
-            className=" text-black dark:text-white underline"
+            className="text-black dark:text-white underline"
           >
-            Already had an account? Login
+            Already have an account? Login
           </Link>
         </div>
       </form>
     </div>
+  </div>
+
   );
 }
