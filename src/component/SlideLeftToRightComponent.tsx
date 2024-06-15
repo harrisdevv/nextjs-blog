@@ -1,7 +1,7 @@
 import React from 'react'
 
 export default function SlideLeftToRightComponent() {
-  childComponent = {;
+  // childComponent = {;
   
   const slideInFromLeft = {
     hidden: { opacity: 0, x: -150 },
