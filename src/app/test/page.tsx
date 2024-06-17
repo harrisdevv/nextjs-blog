@@ -1,5 +1,6 @@
 'use client'
 import AnimatedNavbar from '@/component/AnimateNavbar'
+import TestComponent from '@/component/Test'
 import React, { Component } from 'react'
 
 type Props = {}
@@ -11,7 +12,8 @@ export default class page extends Component<Props, State> {
 
   render() {
     return (
-      <AnimatedNavbar />
+      // <AnimatedNavbar />
+      <TestComponent />
     )
   }
 }

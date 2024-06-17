@@ -4,23 +4,13 @@ import Image from "next/image";
 import Link from "next/link";
 import Tag from "./Tag";
 // import { slug } from 'github-slugger';
-import { motion } from "framer-motion"; // Import motion from Framer Motion
+import SlideLeftToRightComponent from "./SlideLeftToRightComponent";
 
 const HomeCoverSection = ({ blogs }: { blogs: any[] }) => {
   const sortedBlogs = sortBlogsByPublishedDate(blogs);
   const blog = sortedBlogs[0];
-  const slideInFromLeft = {
-    hidden: { opacity: 0, x: -100 },
-    visible: { opacity: 1, x: 0 },
-  };
   return (
-    <motion.div
-      initial="hidden"
-      animate="visible"
-      variants={slideInFromLeft}
-      transition={{ duration: 1 }} // Adjust the duration as needed
-      className="w-full inline-block"
-    >
+    <SlideLeftToRightComponent>
       <div className="w-full inline-block">
         <article className="flex flex-col items-start justify-end mx-5 sm:mx-10 relative h-[60vh] sm:h-[85vh]">
           <div
@@ -59,7 +49,7 @@ const HomeCoverSection = ({ blogs }: { blogs: any[] }) => {
           </div>
         </article>
       </div>
-    </motion.div>
+    </SlideLeftToRightComponent>
   );
 };
 

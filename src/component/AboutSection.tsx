@@ -1,21 +1,11 @@
 "use client";
-import Image from "next/image";
-import React from "react";
 import sourceMetadata from "@/util/SourceMetaData";
-import { motion } from "framer-motion";
+import Image from "next/image";
+import SlideLeftToRightComponent from "./SlideLeftToRightComponent";
 
 const AboutSection = () => {
-  const slideInFromLeft = {
-    hidden: { opacity: 0, x: -150 },
-    visible: { opacity: 1, x: 0 },
-  };
   return (
-    <motion.div
-      initial="hidden"
-      animate="visible"
-      variants={slideInFromLeft}
-      transition={{ duration: 1 }}
-    >
+    <SlideLeftToRightComponent>
       <section className="w-full md:h-[75vh] border-b-2 border-solid border-dark dark:border-light flex flex-col md:flex-row items-center justify-center text-dark dark:text-light">
         <div className="w-full md:w-1/2 h-full border-r-2 border-solid border-dark dark:border-light flex justify-center">
           <Image
@@ -43,7 +33,7 @@ const AboutSection = () => {
           </p>
         </div>
       </section>
-    </motion.div>
+    </SlideLeftToRightComponent>
   );
 };
 

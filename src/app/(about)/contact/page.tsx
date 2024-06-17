@@ -4,19 +4,11 @@ import siteMetadata from "@/util/SourceMetaData";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { metadata } from "@/app/contactMetadata";
+import SlideLeftToRightComponent from "@/component/SlideLeftToRightComponent";
 
 export default function Contact() {
-  const slideInFromLeft = {
-    hidden: { opacity: 0, x: -150 },
-    visible: { opacity: 1, x: 0 },
-  };
   return (
-    <motion.div
-      initial="hidden"
-      animate="visible"
-      variants={slideInFromLeft}
-      transition={{ duration: 1 }}
-    >
+    <SlideLeftToRightComponent>
       <section className="w-full h-auto md:h-[75vh] border-b-2 border-solid border-dark dark:border-light flex  flex-col md:flex-row items-center justify-center text-dark dark:text-light">
         <div className="inline-block w-full sm:w-4/5 md:w-2/5 h-full md:border-r-2 border-solid border-dark dark:border-light">
           <Image
@@ -34,6 +26,6 @@ export default function Contact() {
           <ContactForm />
         </div>
       </section>
-    </motion.div>
+    </SlideLeftToRightComponent>
   );
 }
