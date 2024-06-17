@@ -4,7 +4,7 @@ import SlideLeftToRightComponent from "./SlideLeftToRightComponent";
 
 const TestComponent = () => {
   return (
-    <SlideLeftToRightComponent>
+    <SlideLeftToRightComponent duration={0.5} x={-200}>
       <div>
         <h1>Test Component</h1>
         <p>Test Component</p>
