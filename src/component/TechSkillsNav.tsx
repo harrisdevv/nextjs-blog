@@ -1,4 +1,4 @@
-'use client'
+"use client";
 import { motion } from "framer-motion";
 
 const techSkills = [
@@ -30,10 +30,11 @@ const TechSkillsNav = () => {
             key={index}
             className="font-semibold inline-block capitalize text-base xs:text-lg sm:text-xl md:text-2xl py-2 xs:py-3 sm:py-4 lg:py-5 px-4 xs:px-6 sm:px-8 lg:px-12 border-2 border-solid border-dark dark:border-light rounded mr-3 mb-3 xs:mr-4 xs:mb-4 md:mr-6 md:mb-6 cursor-pointer dark:font-normal"
             whileHover={{
-              scale: 1.05,
-              rotate: 360,
+              scale: 1.1, // Change the scale value to adjust the scaling effect
+              boxShadow: "0 0 5px 2px rgba(0, 0, 0, 0.2)",
               transition: { duration: 0.5 },
             }}
+            whileTap={{ scale: 0.9 }}
             style={{
               color: `hsl(${index * (360 / techSkills.length)}, 100%, 50%)`,
             }}
