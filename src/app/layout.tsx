@@ -11,7 +11,6 @@ import { useEffect, useState } from "react";
 import "./globals.css";
 // import { metadata as siteMetadata} from "./metadata";
 // import { Metadata } from "next";
-
 // export const metadata : Metadata = siteMetadata;
 
 const inter = Inter({
