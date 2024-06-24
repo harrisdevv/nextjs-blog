@@ -49,6 +49,9 @@ const FeaturedPosts: React.FC<FeaturedPostsProps> = ({ blogs }) => {
           <article className="col-span-2 sm:col-span-1 row-span-1 relative">
             <SecondLayoutBlog blog={sortedBlogs[3]} />
           </article>
+          <article className="col-span-2 sm:col-span-1 row-span-1 relative">
+            <SecondLayoutBlog blog={sortedBlogs[3]} />
+          </article>
         </div>
       </section>
     </motion.div>

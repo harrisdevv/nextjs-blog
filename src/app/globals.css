@@ -79,3 +79,9 @@ code[data-line-numbers-max-digits="3"] > [data-line]::before {
   font-size: 1rem;
   color: #747474;
 }
+
+.newsletter-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
